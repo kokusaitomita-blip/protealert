@@ -1,0 +1,3 @@
+User-agent: * 
+Allow: / 
+Sitemap: https://kokusaitomita-blip.github.io/protealert/sitemap.xml 
