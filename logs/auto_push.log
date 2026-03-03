@@ -1,0 +1,81 @@
+[2026/03/02 11:11:18.70] Step 1: Generating website data... 
+C:\PROALERT\generate_website_data.py:10: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
+  C:\protealert\data\sale_alerts.json   — \u30e9\u30f3\u30ad\u30f3\u30b0\uff0b\u30bb\u30fc\u30eb\u60c5\u5831
+==================================================
+ProteAlert Website Data Generator
+==================================================
+
+[1/2] Generating sale_alerts.json ...
+Traceback (most recent call last):
+  File "C:\PROALERT\generate_website_data.py", line 294, in main
+    print(f"  \u2705 {len(sale_data['ranking'])} products, {len(sale_data['sale_alerts'])} sales")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 2: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\PROALERT\generate_website_data.py", line 323, in <module>
+    main()
+    ~~~~^^
+  File "C:\PROALERT\generate_website_data.py", line 297, in main
+    print(f"  \u274c Error: {e}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+[2026/03/02 11:11:18.87] ERROR: generate_website_data.py failed 
+[2026/03/02 11:11:18.87] === Auto Push FAILED === 
+[2026/03/02 11:14:20.92] Step 1: Generating website data... 
+==================================================
+ProteAlert Website Data Generator
+==================================================
+
+[1/2] Generating sale_alerts.json ...
+  [OK] 30 products, 7 sales
+  -> C:\protealert\data\sale_alerts.json
+
+[2/2] Generating price_history.json ...
+  [OK] 19 brands, 166 data points
+  Period: 2026-02-18 ~ 2026-03-02
+  -> C:\protealert\data\price_history.json
+
+==================================================
+Done!
+[2026/03/02 11:14:21.07] Step 1: OK 
+[2026/03/02 11:14:21.07] Step 2: Git push... 
+[main b30b622] auto-update: 2026-03-02
+ 2 files changed, 719 insertions(+), 126 deletions(-)
+ create mode 100644 data/price_history.json
+To https://github.com/kokusaitomita-blip/protealert.git
+   bff74a7..b30b622  main -> main
+[2026/03/02 11:14:21.11] Step 2: Pushed successfully 
+[2026/03/02 11:14:23.10] === Auto Push Complete === 
+[2026/03/03  7:35:01.38] Step 1: Generating website data... 
+==================================================
+ProteAlert Website Data Generator
+==================================================
+
+[1/2] Generating sale_alerts.json ...
+  [OK] 30 products, 11 sales
+  -> C:\protealert\data\sale_alerts.json
+
+[2/2] Generating price_history.json ...
+  [OK] 19 brands, 184 data points
+  Period: 2026-02-18 ~ 2026-03-03
+  -> C:\protealert\data\price_history.json
+
+==================================================
+Done!
+[2026/03/03  7:35:01.53] Step 1: OK 
+[2026/03/03  7:35:01.53] Step 2: Git push... 
+[main 06b107c] auto-update: 2026-03-03
+ 2 files changed, 179 insertions(+), 115 deletions(-)
+To https://github.com/kokusaitomita-blip/protealert.git
+   c9874f7..06b107c  main -> main
+[2026/03/03  7:35:01.58] Step 2: Pushed successfully 
+[2026/03/03  7:35:03.17] === Auto Push Complete === 
