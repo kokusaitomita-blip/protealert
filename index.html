@@ -331,7 +331,8 @@ async function loadData() {
         price_per_g: a.price_per_g,
         best_url: a.url,
         rakuten_url: a.url,
-        official_url: a.url
+        official_url: a.url,
+        amazon_url: a.amazon_url || null
       };}),
       daily_ranking: (raw.ranking || []).map(function(r) { return {
         rank: r.rank,
@@ -343,7 +344,8 @@ async function loadData() {
         source: r.source || 'rakuten',
         url: r.url,
         is_sale: r.is_sale || false,
-        shop_name: ''
+        shop_name: '',
+        amazon_url: r.amazon_url || null
       };})
     };
   } catch (e) {
@@ -442,7 +444,7 @@ function renderRank() {
     var sl = r.source === 'official' ? '公式' : '楽天';
     var cl = r.source === 'official' ? '公式で見る' : '楽天で見る';
     var saleBadge = r.is_sale ? '<span class="b bs">SALE</span>' : '';
-    return '<tr class="tr"><td><span class="rk ' + rc + '">' + (i + 1) + '</span></td><td><div class="pb">' + r.brand + saleBadge + '</div><div class="pn" title="' + r.product_name + '">' + r.product_name + '</div></td><td><span class="ppg">&yen;' + r.price_per_g.toFixed(2) + '/g</span></td><td><span class="prc">&yen;' + r.price.toLocaleString() + '</span></td><td><span class="b bw">' + wl + '</span></td><td><span class="b ' + sc + '">' + sl + '</span></td><td><a href="' + (r.url || '#') + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'' + sl + '\',rank:' + (i+1) + '})">' + cl + ' &rarr;</a></td></tr>';
+    return '<tr class="tr"><td><span class="rk ' + rc + '">' + (i + 1) + '</span></td><td><div class="pb">' + r.brand + saleBadge + '</div><div class="pn" title="' + r.product_name + '">' + r.product_name + '</div></td><td><span class="ppg">&yen;' + r.price_per_g.toFixed(2) + '/g</span></td><td><span class="prc">&yen;' + r.price.toLocaleString() + '</span></td><td><span class="b bw">' + wl + '</span></td><td><span class="b ' + sc + '">' + sl + '</span></td><td><a href="' + (r.url || '#') + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'' + sl + '\',rank:' + (i+1) + '})">' + cl + ' &rarr;</a>' + (r.amazon_url ? ' <a href="' + r.amazon_url + '" target="_blank" rel="noopener" class="cta cta-az" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'amazon\',rank:' + (i+1) + '})">Amazon &rarr;</a>' : '') + '</td></tr>';
   }).join('');
   // Mobile
   document.getElementById('mCards').innerHTML = items.map(function(r, i) {
@@ -452,7 +454,7 @@ function renderRank() {
     var sl = r.source === 'official' ? '公式' : '楽天';
     var cl = r.source === 'official' ? '公式で見る' : '楽天で見る';
     var saleBadge = r.is_sale ? '<span class="b bs">SALE</span>' : '';
-    return '<div class="mc"><div class="mc-top"><div><span class="mc-rk ' + rc + '">#' + (i + 1) + '</span> <span class="mc-br">' + r.brand + '</span>' + saleBadge + '</div><span class="mc-ppg">&yen;' + r.price_per_g.toFixed(2) + '/g</span></div><div class="mc-nm">' + r.product_name + '</div><div class="mc-meta"><span class="mc-pr">&yen;' + r.price.toLocaleString() + '</span><span class="b bw">' + wl + '</span><span class="b ' + sc + '">' + sl + '</span></div><div class="mc-cta"><a href="' + (r.url || '#') + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'' + sl + '\',rank:' + (i+1) + '})">' + cl + ' &rarr;</a></div></div>';
+    return '<div class="mc"><div class="mc-top"><div><span class="mc-rk ' + rc + '">#' + (i + 1) + '</span> <span class="mc-br">' + r.brand + '</span>' + saleBadge + '</div><span class="mc-ppg">&yen;' + r.price_per_g.toFixed(2) + '/g</span></div><div class="mc-nm">' + r.product_name + '</div><div class="mc-meta"><span class="mc-pr">&yen;' + r.price.toLocaleString() + '</span><span class="b bw">' + wl + '</span><span class="b ' + sc + '">' + sl + '</span></div><div class="mc-cta"><a href="' + (r.url || '#') + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'' + sl + '\',rank:' + (i+1) + '})">' + cl + ' &rarr;</a>' + (r.amazon_url ? ' <a href="' + r.amazon_url + '" target="_blank" rel="noopener" class="cta cta-az" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'amazon\'})">Amazon &rarr;</a>' : '') + '</div></div>';
   }).join('');
 }
 
@@ -478,7 +480,7 @@ function renderAlerts() {
     var wl = a.weight_g >= 1000 ? (a.weight_g / 1000) + 'kg' : a.weight_g + 'g';
     var tl = a.type === 'discount' ? 'セール検知' : a.type === 'historical_low' ? '最安値更新' : a.type === 'both' ? 'セール + 最安値' : 'セール検知';
     var url = a.best_url || '#';
-    return '<div class="alc"><div class="al-type">' + tl + ' <span class="b bs">SALE</span></div><div class="al-brand">' + a.brand + ' ' + wl + '</div><div class="al-detail">平均より &yen;' + Math.abs(a.diff).toLocaleString() + ' 安い</div><div class="al-save">-' + a.savings_pct + '%</div><div class="al-prices"><div class="al-pi">現在: <strong>&yen;' + a.best_price.toLocaleString() + '</strong></div><div class="al-pi">30日平均: <strong>&yen;' + a.official_price.toLocaleString() + '</strong></div><div class="al-pi">g単価: <strong>&yen;' + a.price_per_g.toFixed(2) + '/g</strong></div></div><div style="margin-top:.6rem"><a href="' + url + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + a.brand + '\',type:\'alert\'})">楽天で見る &rarr;</a></div></div>';
+    return '<div class="alc"><div class="al-type">' + tl + ' <span class="b bs">SALE</span></div><div class="al-brand">' + a.brand + ' ' + wl + '</div><div class="al-detail">平均より &yen;' + Math.abs(a.diff).toLocaleString() + ' 安い</div><div class="al-save">-' + a.savings_pct + '%</div><div class="al-prices"><div class="al-pi">現在: <strong>&yen;' + a.best_price.toLocaleString() + '</strong></div><div class="al-pi">30日平均: <strong>&yen;' + a.official_price.toLocaleString() + '</strong></div><div class="al-pi">g単価: <strong>&yen;' + a.price_per_g.toFixed(2) + '/g</strong></div></div><div style="margin-top:.6rem"><a href="' + url + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + a.brand + '\',type:\'alert\'})">楽天で見る &rarr;</a>' + (a.amazon_url ? ' <a href="' + a.amazon_url + '" target="_blank" rel="noopener" class="cta cta-az">Amazon &rarr;</a>' : '') + '</div></div>';
   }).join('');
 }
 
@@ -548,6 +550,7 @@ function renderHero() {
     var d = new Date(D.generated_at);
     document.getElementById('hero-updated').textContent = d.getFullYear() + '/' + String(d.getMonth()+1).padStart(2,'0') + '/' + String(d.getDate()).padStart(2,'0') + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0') + ' updated';
   }
+  var hazl=document.getElementById('hero-az');if(D.daily_ranking[0].amazon_url){hazl.href=D.daily_ranking[0].amazon_url;hazl.style.display='inline-flex';}else{hazl.style.display='none';}
 }
 
 // JSON-LD
