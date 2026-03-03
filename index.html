@@ -7,16 +7,21 @@
 <meta name="description" content="プロテイン最安値比較サイト。楽天・公式サイトを横断してg単価ランキング、セール速報、価格推移を毎日自動更新。25+ブランドを網羅。">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0a0b0f">
-<meta name="keywords" content="プロテイン,最安値,g単価,ランキング,比較,セール,ホエイプロテイン,WPC,WPI,楽天">
-<link rel="canonical" href="https://protealert.github.io/">
+<link rel="canonical" href="https://kokusaitomita-blip.github.io/protealert/">
 
 <!-- Open Graph -->
 <meta property="og:title" content="ProteAlert | プロテイン最安g単価ランキング">
 <meta property="og:description" content="楽天・公式サイトを横断。g単価ランキング・セール速報を毎日自動更新。">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://protealert.github.io/">
+<meta property="og:url" content="https://kokusaitomita-blip.github.io/protealert/">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="ProteAlert">
+
+<!-- GA4: Replace G-XXXXXXXXXX with your Measurement ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +31,7 @@
 
 <!-- 構造化データ: WebSite -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"ProteAlert","url":"https://protealert.github.io/","description":"プロテイン最安値比較サイト。楽天・公式サイトを横断してg単価ランキングを毎日自動更新。","inLanguage":"ja"}
+{"@context":"https://schema.org","@type":"WebSite","name":"ProteAlert","url":"https://kokusaitomita-blip.github.io/protealert/","description":"プロテイン最安値比較サイト。楽天・公式サイトを横断してg単価ランキングを毎日自動更新。","inLanguage":"ja"}
 </script>
 <!-- 構造化データ: ItemList (動的生成) -->
 <script id="ranking-jsonld" type="application/ld+json"></script>
@@ -56,7 +61,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans JP',system-ui,sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh}
 
-/* ── Header ── */
+/* -- Header -- */
 header{background:linear-gradient(180deg,rgba(0,212,255,.08) 0%,transparent 100%);border-bottom:1px solid var(--border);padding:1rem 1.25rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
 .h-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
 .logo{display:flex;align-items:center;gap:.5rem}
@@ -67,23 +72,32 @@ header{background:linear-gradient(180deg,rgba(0,212,255,.08) 0%,transparent 100%
 .search-box input{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:7px;padding:.45rem .6rem .45rem 1.8rem;color:var(--t1);font-family:inherit;font-size:.8rem;width:170px;outline:none;transition:border .2s}
 .search-box input:focus{border-color:var(--cyan)}
 .search-box input::placeholder{color:var(--t3)}
-.search-box::before{content:'🔍';position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:.7rem}
+.search-box::before{content:'&#x1F50D;';position:absolute;left:7px;top:50%;transform:translateY(-50%);font-size:.7rem}
 .upd{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--t3);white-space:nowrap}
 .upd-dot{display:inline-block;width:7px;height:7px;background:var(--green);border-radius:50%;margin-right:4px;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* ── Nav ── */
+/* -- Nav -- */
 .nav{max-width:1200px;margin:0 auto;padding:.6rem 1.25rem;display:flex;gap:.4rem}
 .nav button{padding:.5rem 1rem;border:1px solid var(--border);border-radius:7px;background:0 0;color:var(--t2);font-family:inherit;font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s;min-height:44px}
 .nav button:hover{border-color:var(--cyan);color:var(--cyan)}
 .nav button.active{background:rgba(0,212,255,.1);border-color:var(--cyan);color:var(--cyan)}
 
-/* ── Main ── */
+/* -- Main -- */
 main{max-width:1200px;margin:0 auto;padding:0 1.25rem 3rem}
 .sec{display:none}.sec.active{display:block}
 h2{font-size:1.15rem;font-weight:700;margin:1.25rem 0 .8rem;display:flex;align-items:center;gap:.4rem}
 
-/* ── Stats ── */
+/* -- Hero -- */
+.hero{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(123,92,255,.08));border:1px solid rgba(0,212,255,.2);border-radius:var(--r);padding:1.5rem;margin-bottom:1rem;text-align:center;animation:fu .4s ease both;margin-top:1rem}
+.hero-label{font-size:.7rem;color:var(--t3);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:.3rem}
+.hero-ppg{font-family:'JetBrains Mono',monospace;font-size:2.8rem;font-weight:900;color:var(--green);line-height:1.1}
+.hero-product{font-size:1rem;color:var(--t1);font-weight:700;margin:.3rem 0 .6rem}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.hero-updated{font-size:.72rem;color:var(--t3);font-family:'JetBrains Mono',monospace}
+.hero-btn{font-size:.8rem;padding:.45rem .8rem}
+
+/* -- Stats -- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-bottom:1.25rem}
 .st{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:.9rem;animation:fu .3s ease both}
 .st:nth-child(1){animation-delay:.03s}.st:nth-child(2){animation-delay:.06s}.st:nth-child(3){animation-delay:.09s}.st:nth-child(4){animation-delay:.12s}
@@ -92,13 +106,13 @@ h2{font-size:1.15rem;font-weight:700;margin:1.25rem 0 .8rem;display:flex;align-i
 .st-v.cy{color:var(--cyan)}.st-v.gr{color:var(--green)}.st-v.am{color:var(--amber)}.st-v.pu{color:var(--purple)}
 .st-s{font-size:.7rem;color:var(--t2);margin-top:.1rem}
 
-/* ── Controls ── */
+/* -- Controls -- */
 .ctrl{display:flex;gap:.4rem;margin-bottom:.8rem;flex-wrap:wrap;align-items:center}
 .ctrl-l{font-size:.72rem;color:var(--t3);margin-right:.2rem}
 .pill{padding:.3rem .6rem;border:1px solid var(--border);border-radius:5px;background:0 0;color:var(--t2);font-family:inherit;font-size:.72rem;cursor:pointer;transition:all .2s;min-height:30px}
 .pill:hover,.pill.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,.06)}
 
-/* ── Table (desktop) ── */
+/* -- Table (desktop) -- */
 .tbl-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .tbl{width:100%;border-collapse:separate;border-spacing:0 4px}
 .tbl th{font-size:.68rem;font-weight:500;color:var(--t3);text-transform:uppercase;letter-spacing:.7px;text-align:left;padding:.35rem .7rem;cursor:pointer;user-select:none;white-space:nowrap;transition:color .2s}
@@ -129,7 +143,7 @@ h2{font-size:1.15rem;font-weight:700;margin:1.25rem 0 .8rem;display:flex;align-i
 .cta:hover{border-color:var(--cyan);color:var(--cyan)}
 .cta-p{background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.3);color:var(--cyan)}
 
-/* ── Mobile Cards ── */
+/* -- Mobile Cards -- */
 .mcards{display:none}
 .mc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:.9rem;margin-bottom:.5rem;animation:fu .3s ease both}
 .mc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.35rem}
@@ -141,7 +155,7 @@ h2{font-size:1.15rem;font-weight:700;margin:1.25rem 0 .8rem;display:flex;align-i
 .mc-pr{font-family:'JetBrains Mono',monospace;font-weight:700}
 .mc-cta{display:flex;gap:.4rem}
 
-/* ── Alerts ── */
+/* -- Alerts -- */
 .alcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:.7rem}
 .alc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:1rem;transition:all .2s;position:relative;overflow:hidden;animation:fu .4s ease both}
 .alc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
@@ -156,7 +170,7 @@ h2{font-size:1.15rem;font-weight:700;margin:1.25rem 0 .8rem;display:flex;align-i
 .al-pi strong{font-family:'JetBrains Mono',monospace;color:var(--t1)}
 #noAlerts{display:none;color:var(--t3);text-align:center;padding:3rem;font-size:.85rem}
 
-/* ── Chart ── */
+/* -- Chart -- */
 .ch-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;margin-top:.8rem}
 .ch-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;flex-wrap:wrap;gap:.4rem}
 .ch-title{font-size:.9rem;font-weight:700}
@@ -166,14 +180,14 @@ h2{font-size:1.15rem;font-weight:700;margin:1.25rem 0 .8rem;display:flex;align-i
 #priceChart{max-height:300px}
 .ch-note{color:var(--t3);font-size:.7rem;margin-top:.5rem;text-align:center}
 
-/* ── Footer ── */
+/* -- Footer -- */
 footer{max-width:1200px;margin:0 auto;padding:1.5rem 1.25rem;border-top:1px solid var(--border);text-align:center;color:var(--t3);font-size:.7rem}
 footer a{color:var(--cyan);text-decoration:none}
 
-/* ── Animation ── */
+/* -- Animation -- */
 @keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── Responsive ── */
+/* -- Responsive -- */
 @media(max-width:768px){
   header{padding:.7rem .8rem}
   .h-inner{flex-wrap:wrap}
@@ -185,6 +199,7 @@ footer a{color:var(--cyan);text-decoration:none}
   .mcards{display:block}
   .alcards{grid-template-columns:1fr}
   h2{font-size:1rem}
+  .hero-ppg{font-size:2.2rem}
 }
 @media(max-width:480px){
   .stats{gap:.4rem}
@@ -199,7 +214,7 @@ footer a{color:var(--cyan);text-decoration:none}
 <header>
   <div class="h-inner">
     <div class="logo">
-      <div class="logo-ic" aria-hidden="true">🥛</div>
+      <div class="logo-ic" aria-hidden="true">&#x1F95B;</div>
       <h1>ProteAlert</h1>
     </div>
     <div class="h-right">
@@ -212,14 +227,25 @@ footer a{color:var(--cyan);text-decoration:none}
 </header>
 
 <nav class="nav" aria-label="メインナビゲーション">
-  <button class="active" data-sec="ranking" aria-label="ランキング表示">📊 ランキング</button>
-  <button data-sec="alerts" aria-label="セール速報表示">🔥 セール速報</button>
-  <button data-sec="chart" aria-label="価格推移表示">📈 価格推移</button>
+  <button class="active" data-sec="ranking" aria-label="ランキング表示">&#x1F4CA; ランキング</button>
+  <button data-sec="alerts" aria-label="セール速報表示">&#x1F525; セール速報</button>
+  <button data-sec="chart" aria-label="価格推移表示">&#x1F4C8; 価格推移</button>
 </nav>
 
 <main>
-  <!-- ══ ランキング ══ -->
+  <!-- ranking -->
   <section id="sec-ranking" class="sec active" aria-labelledby="h-rank">
+    <!-- Hero -->
+    <div class="hero" id="hero">
+      <div class="hero-label">今日の最安プロテイン</div>
+      <div class="hero-ppg" id="hero-ppg">--</div>
+      <div class="hero-product" id="hero-product">--</div>
+      <div class="hero-meta">
+        <span class="hero-updated" id="hero-updated">--</span>
+        <a href="#" id="hero-cta" target="_blank" rel="noopener" class="cta cta-p hero-btn">最安を見る &#x2192;</a>
+      </div>
+    </div>
+
     <div class="stats" role="region" aria-label="概要統計">
       <div class="st"><div class="st-l">最安 g単価</div><div class="st-v gr" id="s-ppg">--</div><div class="st-s" id="s-brand">--</div></div>
       <div class="st"><div class="st-l">監視ブランド</div><div class="st-v cy" id="s-brands">--</div><div class="st-s">横断比較</div></div>
@@ -227,7 +253,7 @@ footer a{color:var(--cyan);text-decoration:none}
       <div class="st"><div class="st-l">データソース</div><div class="st-v pu">2</div><div class="st-s">楽天 + 公式</div></div>
     </div>
 
-    <h2 id="h-rank">🏆 g単価ランキング TOP10</h2>
+    <h2 id="h-rank">&#x1F3C6; g単価ランキング TOP10</h2>
 
     <div class="ctrl" role="toolbar" aria-label="フィルター">
       <span class="ctrl-l">容量:</span>
@@ -239,7 +265,7 @@ footer a{color:var(--cyan);text-decoration:none}
         <thead><tr>
           <th scope="col" style="width:40px">#</th>
           <th scope="col" data-sort="brand">ブランド / 商品名 <span class="sa-arr"></span></th>
-          <th scope="col" data-sort="price_per_g" class="sa">g単価 <span class="sa-arr">▲</span></th>
+          <th scope="col" data-sort="price_per_g" class="sa">g単価 <span class="sa-arr">&#x25B2;</span></th>
           <th scope="col" data-sort="price">価格 <span class="sa-arr"></span></th>
           <th scope="col">容量</th>
           <th scope="col">ソース</th>
@@ -251,23 +277,24 @@ footer a{color:var(--cyan);text-decoration:none}
     <div class="mcards" id="mCards"></div>
   </section>
 
-  <!-- ══ セール速報 ══ -->
+  <!-- alerts -->
   <section id="sec-alerts" class="sec" aria-labelledby="h-alerts">
-    <h2 id="h-alerts">🔥 セール速報・価格比較アラート</h2>
+    <h2 id="h-alerts">&#x1F525; セール速報・価格比較アラート</h2>
     <div class="alcards" id="alCards"></div>
     <p id="noAlerts">現在アクティブなセールアラートはありません。次回のチェックをお待ちください。</p>
   </section>
 
-  <!-- ══ 価格推移 ══ -->
+  <!-- chart -->
   <section id="sec-chart" class="sec" aria-labelledby="h-chart">
-    <h2 id="h-chart">📈 価格推移グラフ</h2>
+    <h2 id="h-chart">&#x1F4C8; 価格推移グラフ</h2>
     <div class="ch-wrap">
       <div class="ch-head">
         <div class="ch-title">TOP5 g単価推移</div>
         <div class="ch-periods">
-          <button class="pill active" data-days="7">7日</button>
+          <button class="pill" data-days="7">7日</button>
           <button class="pill" data-days="14">14日</button>
-          <button class="pill" data-days="30">30日</button>
+          <button class="pill active" data-days="30">30日</button>
+          <button class="pill" data-days="90">90日</button>
         </div>
       </div>
       <div class="ch-legend" id="chLeg"></div>
@@ -279,189 +306,280 @@ footer a{color:var(--cyan);text-decoration:none}
 
 <footer>
   <p>ProteAlert &copy; 2026 &mdash; <a href="https://x.com/ProteAlert" target="_blank" rel="noopener">@ProteAlert</a> &middot; 毎日自動更新 &middot; 楽天 + 公式サイト横断比較</p>
-  <p style="margin-top:.4rem">※ 価格は取得時点のものです。最新の価格は各サイトでご確認ください。</p>
+  <p style="margin-top:.4rem">&#x203B; 価格は取得時点のものです。最新の価格は各サイトでご確認ください。</p>
 </footer>
 
 <script>
-// ═══════════════════════════════════════
 // Data
-// ═══════════════════════════════════════
-let D = null, chartInst = null;
+let D = null, HIST = null, chartInst = null;
 
 async function loadData() {
-  // GitHub Pages公開時: fetch('/data/sale_alerts.json?v='+Date.now())
-  D = {"generated_at":"2026-03-01T16:31:27.882720+09:00","alert_count":4,"alerts":[
-    {"type":"cross_source_best","brand":"X-PLOSION","weight_g":3000,"best_source":"official","best_price":7699,"rakuten_price":9980,"official_price":7699,"savings_pct":22.9,"diff":2281,"price_per_g":2.57,"best_url":"https://store.x-plosion.jp/view/item/000000000004","rakuten_url":"https://item.rakuten.co.jp/x-plosion/wpcfl-mon/","official_url":"https://store.x-plosion.jp/view/item/000000000004"},
-    {"type":"cross_source_best","brand":"ビーレジェンド","weight_g":700,"best_source":"official","best_price":2980,"rakuten_price":3132,"official_price":2980,"savings_pct":4.9,"diff":152,"price_per_g":4.26,"best_url":"https://store.belegend.jp/item/BLWC10AP1.html","rakuten_url":"https://item.rakuten.co.jp/realstyle4u/brwc/","official_url":"https://store.belegend.jp/item/BLWC10AP1.html"},
-    {"type":"cross_source_best","brand":"ビーレジェンド","weight_g":900,"best_source":"official","best_price":3582,"rakuten_price":4580,"official_price":3582,"savings_pct":21.8,"diff":998,"price_per_g":3.98,"best_url":"https://store.belegend.jp/item/BLDL01QP1.html","rakuten_url":"https://item.rakuten.co.jp/realstyle4u/blpl32qp1/","official_url":"https://store.belegend.jp/item/BLDL01QP1.html"},
-    {"type":"cross_source_best","brand":"ビーレジェンド","weight_g":1000,"best_source":"official","best_price":2980,"rakuten_price":3380,"official_price":2980,"savings_pct":11.8,"diff":400,"price_per_g":2.98,"best_url":"https://store.belegend.jp/item/BLPS06AP1.html","rakuten_url":"https://item.rakuten.co.jp/realstyle4u/blps06ap1/","official_url":"https://store.belegend.jp/item/BLPS06AP1.html"}
-  ],"daily_ranking":[
-    {"rank":1,"brand":"ALPRON","product_name":"アルプロン WPC ナチュラルチョコレート風味 3kg","price":6208,"price_per_g":2.07,"weight_g":3000,"source":"rakuten","url":"https://item.rakuten.co.jp/useful-life-store/202407310043780/","shop_name":"ユースフルライフストア"},
-    {"rank":2,"brand":"GronG","product_name":"GronG プロテイン ホエイプロテイン100 ベーシック 1kg","price":2480,"price_per_g":2.48,"weight_g":1000,"source":"rakuten","url":"https://item.rakuten.co.jp/iimoshop/grong-499/","shop_name":"iimo楽天市場店"},
-    {"rank":3,"brand":"Verifyst","product_name":"ベリフィスト ホエイプロテイン 3kg 大容量","price":7640,"price_per_g":2.55,"weight_g":3000,"source":"rakuten","url":"https://item.rakuten.co.jp/verifyst/v00130/","shop_name":"ベリフィスト楽天市場店"},
-    {"rank":4,"brand":"X-PLOSION","product_name":"X-PLOSION WPC 100% ナチュラルホエイプロテイン 3kg","price":7699,"price_per_g":2.57,"weight_g":3000,"source":"official","url":"https://store.x-plosion.jp/view/item/000000000004","shop_name":"X-PLOSION公式"},
-    {"rank":5,"brand":"NICHIGA","product_name":"SCU ホエイプロテイン 1kg NICHIGA","price":2630,"price_per_g":2.63,"weight_g":1000,"source":"rakuten","url":"https://item.rakuten.co.jp/auc-garlic/scuhoei-1000/","shop_name":"NICHIGA楽天市場店"},
-    {"rank":6,"brand":"FIXIT","product_name":"FIXIT ホエイプロテイン WPC 1kg","price":2786,"price_per_g":2.79,"weight_g":1000,"source":"rakuten","url":"https://item.rakuten.co.jp/import-garden/fixit-acton/","shop_name":"AZ.MARKET"},
-    {"rank":7,"brand":"MY ROUTINE","product_name":"MY ROUTINE MAX ホエイプロテイン 3kg","price":8400,"price_per_g":2.80,"weight_g":3000,"source":"rakuten","url":"https://item.rakuten.co.jp/tofluss/h01-myroutinemax3000/","shop_name":"MY ROUTINE楽天市場店"},
-    {"rank":8,"brand":"Kentai","product_name":"Kentai ウエイトゲイン アドバンス バナナラテ風味 3kg","price":8805,"price_per_g":2.94,"weight_g":3000,"source":"rakuten","url":"https://item.rakuten.co.jp/kenkoex/1326-4972174352383/","shop_name":"健康エクスプレス"},
-    {"rank":9,"brand":"ビーレジェンド","product_name":"ビーレジェンド WPCプロテイン GENMATSU 1kg","price":2980,"price_per_g":2.98,"weight_g":1000,"source":"official","url":"https://store.belegend.jp/item/BLPS06AP1.html","shop_name":"ビーレジェンド公式"},
-    {"rank":10,"brand":"Wellni","product_name":"ウェルニ Wellni SPEED ホエイプロテイン 1kg","price":2998,"price_per_g":3.00,"weight_g":1000,"source":"rakuten","url":"https://item.rakuten.co.jp/mmkonline/4589968172197/","shop_name":"MMK"}
-  ]};
+  try {
+    const res = await fetch('data/sale_alerts.json?v=' + Date.now());
+    const raw = await res.json();
+    D = {
+      generated_at: raw.generated_at || raw.last_updated,
+      alert_count: (raw.sale_alerts || []).length,
+      alerts: (raw.sale_alerts || []).map(function(a) { return {
+        type: a.sale_type || 'discount',
+        brand: a.brand,
+        weight_g: a.weight_g,
+        best_source: 'rakuten',
+        best_price: a.current_price,
+        rakuten_price: a.current_price,
+        official_price: a.avg_price_30d || a.current_price,
+        savings_pct: a.discount_pct || 0,
+        diff: a.avg_price_30d ? Math.round(a.avg_price_30d - a.current_price) : 0,
+        price_per_g: a.price_per_g,
+        best_url: a.url,
+        rakuten_url: a.url,
+        official_url: a.url
+      };}),
+      daily_ranking: (raw.ranking || []).map(function(r) { return {
+        rank: r.rank,
+        brand: r.brand,
+        product_name: r.product_name,
+        price: r.price,
+        price_per_g: r.price_per_g,
+        weight_g: r.weight_g,
+        source: r.source || 'rakuten',
+        url: r.url,
+        is_sale: r.is_sale || false,
+        shop_name: ''
+      };})
+    };
+  } catch (e) {
+    console.error('Failed to load sale_alerts.json:', e);
+    D = { generated_at: null, alert_count: 0, alerts: [], daily_ranking: [] };
+    // Show error in hero
+    var hp = document.getElementById('hero-ppg');
+    if (hp) { hp.textContent = 'Error'; hp.style.color = '#ff4466'; }
+    var hpr = document.getElementById('hero-product');
+    if (hpr) { hpr.textContent = 'データの読み込みに失敗しました'; hpr.style.color = '#ff4466'; }
+  }
 }
 
-const HIST = {
-  labels:["2/18","2/19","2/20","2/21","2/22","2/23","2/24","2/25","2/26","2/27","2/28","3/1"],
-  ds:[
-    {b:"ALPRON 3kg",d:[2.15,2.15,2.12,2.10,2.10,2.07,2.07,2.07,2.07,2.07,2.07,2.07],c:"#00d4ff"},
-    {b:"GronG 1kg",d:[2.60,2.60,2.55,2.55,2.50,2.48,2.48,2.48,2.48,2.48,2.48,2.48],c:"#00e88f"},
-    {b:"X-PLOSION 3kg",d:[2.57,2.57,2.57,2.57,2.57,2.57,2.57,2.57,2.57,2.57,2.57,2.57],c:"#ffb844"},
-    {b:"ビーレジェンド 1kg",d:[3.10,3.10,3.05,3.00,2.98,2.98,2.98,2.98,2.98,2.98,2.98,2.98],c:"#7b5cff"},
-    {b:"FIXIT 1kg",d:[3.28,3.28,3.28,2.90,2.86,2.86,2.79,2.79,2.79,2.79,2.79,2.79],c:"#ff4466"}
-  ]
-};
+async function loadHistory() {
+  try {
+    var res = await fetch('data/price_history.json?v=' + Date.now());
+    var raw = await res.json();
+    HIST = {
+      labels: (raw.dates || []).map(function(d) { var p = d.split('-'); return p[1].replace(/^0/,'') + '/' + p[2].replace(/^0/,''); }),
+      ds: (raw.datasets || []).slice(0, 5).map(function(ds) { return { b: ds.brand, d: ds.data, c: ds.color }; })
+    };
+  } catch (e) {
+    console.error('Failed to load price_history.json:', e);
+    HIST = { labels: [], ds: [] };
+  }
+}
 
-// ═══════════════════════════════════════
+// GA4 Event Helper
+function trackEvent(name, params) {
+  if (typeof gtag === 'function') { gtag('event', name, params); }
+}
+
 // Nav
-// ═══════════════════════════════════════
-document.querySelectorAll('.nav button').forEach(b=>{
-  b.addEventListener('click',()=>{
-    document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('.sec').forEach(x=>x.classList.remove('active'));
+document.querySelectorAll('.nav button').forEach(function(b) {
+  b.addEventListener('click', function() {
+    document.querySelectorAll('.nav button').forEach(function(x) { x.classList.remove('active'); });
+    document.querySelectorAll('.sec').forEach(function(x) { x.classList.remove('active'); });
     b.classList.add('active');
-    document.getElementById('sec-'+b.dataset.sec).classList.add('active');
-    if(b.dataset.sec==='chart'&&!chartInst)loadChart();
+    document.getElementById('sec-' + b.dataset.sec).classList.add('active');
+    if (b.dataset.sec === 'chart' && !chartInst) loadChart();
+    trackEvent('tab_click', { tab: b.dataset.sec });
   });
 });
 
-// ═══════════════════════════════════════
 // Search
-// ═══════════════════════════════════════
-let sq='';
-document.getElementById('searchInput').addEventListener('input',e=>{sq=e.target.value.toLowerCase();renderRank();});
+var sq = '';
+document.getElementById('searchInput').addEventListener('input', function(e) { sq = e.target.value.toLowerCase(); renderRank(); });
 
-// ═══════════════════════════════════════
 // Filter
-// ═══════════════════════════════════════
-let aw='all',sk='price_per_g',sa=true;
+var aw = 'all', sk = 'price_per_g', sa = true;
 
-function buildFilters(){
-  const ws=[...new Set(D.daily_ranking.map(r=>r.weight_g))].sort((a,b)=>a-b);
-  const c=document.getElementById('wFilt');
-  const mk=(l,v)=>{const b=document.createElement('button');b.className='pill'+(v==='all'?' active':'');b.textContent=l;b.addEventListener('click',()=>{aw=v;c.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));b.classList.add('active');renderRank();});return b;};
-  c.appendChild(mk('すべて','all'));
-  ws.forEach(w=>c.appendChild(mk(w>=1000?`${w/1000}kg`:`${w}g`,w)));
+function buildFilters() {
+  if (!D || !D.daily_ranking.length) return;
+  var ws = []; var seen = {};
+  D.daily_ranking.forEach(function(r) { if (!seen[r.weight_g]) { seen[r.weight_g] = true; ws.push(r.weight_g); } });
+  ws.sort(function(a, b) { return a - b; });
+  var c = document.getElementById('wFilt');
+  function mk(l, v) {
+    var b = document.createElement('button');
+    b.className = 'pill' + (v === 'all' ? ' active' : '');
+    b.textContent = l;
+    b.addEventListener('click', function() {
+      aw = v;
+      c.querySelectorAll('.pill').forEach(function(p) { p.classList.remove('active'); });
+      b.classList.add('active');
+      renderRank();
+      trackEvent('filter_click', { filter: l });
+    });
+    return b;
+  }
+  c.appendChild(mk('すべて', 'all'));
+  ws.forEach(function(w) { c.appendChild(mk(w >= 1000 ? (w / 1000) + 'kg' : w + 'g', w)); });
 }
 
-// ═══════════════════════════════════════
 // Ranking
-// ═══════════════════════════════════════
-function filtered(){
-  let it=[...D.daily_ranking];
-  if(aw!=='all')it=it.filter(r=>r.weight_g===aw);
-  if(sq)it=it.filter(r=>r.brand.toLowerCase().includes(sq)||r.product_name.toLowerCase().includes(sq));
-  it.sort((a,b)=>{const va=typeof a[sk]==='string'?a[sk].toLowerCase():a[sk],vb=typeof b[sk]==='string'?b[sk].toLowerCase():b[sk];return sa?(va>vb?1:-1):(va<vb?1:-1);});
+function filtered() {
+  var it = D.daily_ranking.slice();
+  if (aw !== 'all') it = it.filter(function(r) { return r.weight_g === aw; });
+  if (sq) it = it.filter(function(r) { return r.brand.toLowerCase().indexOf(sq) >= 0 || r.product_name.toLowerCase().indexOf(sq) >= 0; });
+  it.sort(function(a, b) {
+    var va = typeof a[sk] === 'string' ? a[sk].toLowerCase() : a[sk];
+    var vb = typeof b[sk] === 'string' ? b[sk].toLowerCase() : b[sk];
+    return sa ? (va > vb ? 1 : -1) : (va < vb ? 1 : -1);
+  });
   return it;
 }
 
-function renderRank(){
-  const items=filtered();
+function renderRank() {
+  if (!D || !D.daily_ranking.length) return;
+  var items = filtered();
   // Desktop
-  document.getElementById('tBody').innerHTML=items.map((r,i)=>{
-    const rc=i<3?`r${i+1}`:'';
-    const wl=r.weight_g>=1000?`${r.weight_g/1000}kg`:`${r.weight_g}g`;
-    const sc=r.source==='official'?'bo':'br';
-    const sl=r.source==='official'?'公式':'楽天';
-    const cl=r.source==='official'?'公式で見る':'楽天で見る';
-    return `<tr class="tr"><td><span class="rk ${rc}">${i+1}</span></td><td><div class="pb">${r.brand}</div><div class="pn" title="${r.product_name}">${r.product_name}</div></td><td><span class="ppg">¥${r.price_per_g.toFixed(2)}/g</span></td><td><span class="prc">¥${r.price.toLocaleString()}</span></td><td><span class="b bw">${wl}</span></td><td><span class="b ${sc}">${sl}</span></td><td><a href="${r.url||'#'}" target="_blank" rel="noopener" class="cta cta-p">${cl} →</a></td></tr>`;
+  document.getElementById('tBody').innerHTML = items.map(function(r, i) {
+    var rc = i < 3 ? 'r' + (i + 1) : '';
+    var wl = r.weight_g >= 1000 ? (r.weight_g / 1000) + 'kg' : r.weight_g + 'g';
+    var sc = r.source === 'official' ? 'bo' : 'br';
+    var sl = r.source === 'official' ? '公式' : '楽天';
+    var cl = r.source === 'official' ? '公式で見る' : '楽天で見る';
+    var saleBadge = r.is_sale ? '<span class="b bs">SALE</span>' : '';
+    return '<tr class="tr"><td><span class="rk ' + rc + '">' + (i + 1) + '</span></td><td><div class="pb">' + r.brand + saleBadge + '</div><div class="pn" title="' + r.product_name + '">' + r.product_name + '</div></td><td><span class="ppg">&yen;' + r.price_per_g.toFixed(2) + '/g</span></td><td><span class="prc">&yen;' + r.price.toLocaleString() + '</span></td><td><span class="b bw">' + wl + '</span></td><td><span class="b ' + sc + '">' + sl + '</span></td><td><a href="' + (r.url || '#') + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'' + sl + '\',rank:' + (i+1) + '})">' + cl + ' &rarr;</a></td></tr>';
   }).join('');
-
   // Mobile
-  document.getElementById('mCards').innerHTML=items.map((r,i)=>{
-    const rc=i<3?`r${i+1}`:'';
-    const wl=r.weight_g>=1000?`${r.weight_g/1000}kg`:`${r.weight_g}g`;
-    const sc=r.source==='official'?'bo':'br';
-    const sl=r.source==='official'?'公式':'楽天';
-    const cl=r.source==='official'?'公式で見る':'楽天で見る';
-    return `<div class="mc"><div class="mc-top"><div><span class="mc-rk ${rc}">#${i+1}</span> <span class="mc-br">${r.brand}</span></div><span class="mc-ppg">¥${r.price_per_g.toFixed(2)}/g</span></div><div class="mc-nm">${r.product_name}</div><div class="mc-meta"><span class="mc-pr">¥${r.price.toLocaleString()}</span><span class="b bw">${wl}</span><span class="b ${sc}">${sl}</span></div><div class="mc-cta"><a href="${r.url||'#'}" target="_blank" rel="noopener" class="cta cta-p">${cl} →</a></div></div>`;
+  document.getElementById('mCards').innerHTML = items.map(function(r, i) {
+    var rc = i < 3 ? 'r' + (i + 1) : '';
+    var wl = r.weight_g >= 1000 ? (r.weight_g / 1000) + 'kg' : r.weight_g + 'g';
+    var sc = r.source === 'official' ? 'bo' : 'br';
+    var sl = r.source === 'official' ? '公式' : '楽天';
+    var cl = r.source === 'official' ? '公式で見る' : '楽天で見る';
+    var saleBadge = r.is_sale ? '<span class="b bs">SALE</span>' : '';
+    return '<div class="mc"><div class="mc-top"><div><span class="mc-rk ' + rc + '">#' + (i + 1) + '</span> <span class="mc-br">' + r.brand + '</span>' + saleBadge + '</div><span class="mc-ppg">&yen;' + r.price_per_g.toFixed(2) + '/g</span></div><div class="mc-nm">' + r.product_name + '</div><div class="mc-meta"><span class="mc-pr">&yen;' + r.price.toLocaleString() + '</span><span class="b bw">' + wl + '</span><span class="b ' + sc + '">' + sl + '</span></div><div class="mc-cta"><a href="' + (r.url || '#') + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + r.brand + '\',source:\'' + sl + '\',rank:' + (i+1) + '})">' + cl + ' &rarr;</a></div></div>';
   }).join('');
 }
 
 // Sort
-document.querySelectorAll('.tbl th[data-sort]').forEach(th=>{
-  th.addEventListener('click',()=>{
-    const k=th.dataset.sort;
-    if(sk===k)sa=!sa;else{sk=k;sa=true;}
-    document.querySelectorAll('.tbl th').forEach(h=>{h.classList.remove('sa');const a=h.querySelector('.sa-arr');if(a)a.textContent='';});
+document.querySelectorAll('.tbl th[data-sort]').forEach(function(th) {
+  th.addEventListener('click', function() {
+    var k = th.dataset.sort;
+    if (sk === k) sa = !sa; else { sk = k; sa = true; }
+    document.querySelectorAll('.tbl th').forEach(function(h) { h.classList.remove('sa'); var a = h.querySelector('.sa-arr'); if (a) a.textContent = ''; });
     th.classList.add('sa');
-    const ar=th.querySelector('.sa-arr');if(ar)ar.textContent=sa?'▲':'▼';
+    var ar = th.querySelector('.sa-arr'); if (ar) ar.textContent = sa ? '\u25B2' : '\u25BC';
     renderRank();
   });
 });
 
-// ═══════════════════════════════════════
 // Alerts
-// ═══════════════════════════════════════
-function renderAlerts(){
-  const al=D.alerts;
-  if(!al.length){document.getElementById('noAlerts').style.display='block';return;}
-  document.getElementById('alCards').innerHTML=al.map(a=>{
-    const wl=a.weight_g>=1000?`${a.weight_g/1000}kg`:`${a.weight_g}g`;
-    const tl=a.type==='cross_source_best'?'公式 vs 楽天':a.type==='discount'?'セール検知':'最安値更新';
-    const bl=a.best_source==='official'?'公式':'楽天';
-    const url=a.best_url||'#';
-    const ct=a.best_source==='official'?'公式で見る →':'楽天で見る →';
-    return `<div class="alc"><div class="al-type">${tl} <span class="b bs">SALE</span></div><div class="al-brand">${a.brand} ${wl}</div><div class="al-detail">${bl}が ¥${a.diff.toLocaleString()} 安い</div><div class="al-save">-${a.savings_pct}%</div><div class="al-prices"><div class="al-pi">公式: <strong>¥${a.official_price.toLocaleString()}</strong></div><div class="al-pi">楽天: <strong>¥${a.rakuten_price.toLocaleString()}</strong></div><div class="al-pi">g単価: <strong>¥${a.price_per_g.toFixed(2)}/g</strong></div></div><div style="margin-top:.6rem"><a href="${url}" target="_blank" rel="noopener" class="cta cta-p">${ct}</a></div></div>`;
+function renderAlerts() {
+  if (!D) return;
+  var al = D.alerts;
+  if (!al.length) { document.getElementById('noAlerts').style.display = 'block'; return; }
+  document.getElementById('noAlerts').style.display = 'none';
+  document.getElementById('alCards').innerHTML = al.map(function(a) {
+    var wl = a.weight_g >= 1000 ? (a.weight_g / 1000) + 'kg' : a.weight_g + 'g';
+    var tl = a.type === 'discount' ? 'セール検知' : a.type === 'historical_low' ? '最安値更新' : a.type === 'both' ? 'セール + 最安値' : 'セール検知';
+    var url = a.best_url || '#';
+    return '<div class="alc"><div class="al-type">' + tl + ' <span class="b bs">SALE</span></div><div class="al-brand">' + a.brand + ' ' + wl + '</div><div class="al-detail">平均より &yen;' + Math.abs(a.diff).toLocaleString() + ' 安い</div><div class="al-save">-' + a.savings_pct + '%</div><div class="al-prices"><div class="al-pi">現在: <strong>&yen;' + a.best_price.toLocaleString() + '</strong></div><div class="al-pi">30日平均: <strong>&yen;' + a.official_price.toLocaleString() + '</strong></div><div class="al-pi">g単価: <strong>&yen;' + a.price_per_g.toFixed(2) + '/g</strong></div></div><div style="margin-top:.6rem"><a href="' + url + '" target="_blank" rel="noopener" class="cta cta-p" onclick="trackEvent(\'cta_click\',{brand:\'' + a.brand + '\',type:\'alert\'})">楽天で見る &rarr;</a></div></div>';
   }).join('');
 }
 
-// ═══════════════════════════════════════
-// Chart (lazy load)
-// ═══════════════════════════════════════
-async function loadChart(){
-  if(typeof Chart==='undefined'){
-    await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s);});
+// Chart
+var chartDays = 30;
+
+async function loadChart() {
+  if (!HIST) await loadHistory();
+  if (typeof Chart === 'undefined') {
+    await new Promise(function(res, rej) { var s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js'; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
   }
-  const ctx=document.getElementById('priceChart').getContext('2d');
-  chartInst=new Chart(ctx,{
-    type:'line',
-    data:{labels:HIST.labels,datasets:HIST.ds.map(x=>({label:x.b,data:x.d,borderColor:x.c,backgroundColor:x.c+'15',borderWidth:2,pointRadius:3,pointHoverRadius:6,tension:.3,fill:false}))},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:'#1a1d28',borderColor:'#2e3150',borderWidth:1,titleColor:'#e8eaf0',bodyColor:'#9aa0b3',padding:10,callbacks:{label:c=>`${c.dataset.label}: ¥${c.parsed.y.toFixed(2)}/g`}}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#626880',font:{family:'JetBrains Mono',size:11}}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#626880',font:{family:'JetBrains Mono',size:11},callback:v=>`¥${v.toFixed(1)}`}}}}
-  });
-  document.getElementById('chLeg').innerHTML=HIST.ds.map(x=>`<span><span class="ch-dot" style="background:${x.c}"></span>${x.b}</span>`).join('');
+  renderChart();
 }
 
-document.querySelectorAll('.ch-periods .pill').forEach(b=>{
-  b.addEventListener('click',()=>{document.querySelectorAll('.ch-periods .pill').forEach(x=>x.classList.remove('active'));b.classList.add('active');});
+function renderChart() {
+  if (!HIST || !HIST.labels.length) return;
+  var labels = HIST.labels.slice(-chartDays);
+  var ctx = document.getElementById('priceChart').getContext('2d');
+  if (chartInst) chartInst.destroy();
+  chartInst = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: HIST.ds.map(function(x) { return {
+        label: x.b, data: x.d.slice(-chartDays), borderColor: x.c,
+        backgroundColor: x.c + '15', borderWidth: 2, pointRadius: 3,
+        pointHoverRadius: 6, tension: .3, fill: false, spanGaps: true
+      };})
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: { backgroundColor: '#1a1d28', borderColor: '#2e3150', borderWidth: 1, titleColor: '#e8eaf0', bodyColor: '#9aa0b3', padding: 10, callbacks: { label: function(c) { return c.dataset.label + ': \u00A5' + c.parsed.y.toFixed(2) + '/g'; } } }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(255,255,255,.04)' }, ticks: { color: '#626880', font: { family: 'JetBrains Mono', size: 11 } } },
+        y: { grid: { color: 'rgba(255,255,255,.04)' }, ticks: { color: '#626880', font: { family: 'JetBrains Mono', size: 11 }, callback: function(v) { return '\u00A5' + v.toFixed(1); } } }
+      }
+    }
+  });
+  document.getElementById('chLeg').innerHTML = HIST.ds.map(function(x) { return '<span><span class="ch-dot" style="background:' + x.c + '"></span>' + x.b + '</span>'; }).join('');
+}
+
+document.querySelectorAll('.ch-periods .pill').forEach(function(b) {
+  b.addEventListener('click', function() {
+    document.querySelectorAll('.ch-periods .pill').forEach(function(x) { x.classList.remove('active'); });
+    b.classList.add('active');
+    chartDays = parseInt(b.dataset.days) || 30;
+    if (chartInst) renderChart();
+    trackEvent('chart_period', { days: chartDays });
+  });
 });
 
-// ═══════════════════════════════════════
-// JSON-LD (dynamic)
-// ═══════════════════════════════════════
-function buildLD(){
-  const ld={"@context":"https://schema.org","@type":"ItemList","name":"プロテイン g単価ランキング TOP10","numberOfItems":D.daily_ranking.length,"itemListElement":D.daily_ranking.map((r,i)=>({"@type":"ListItem","position":i+1,"item":{"@type":"Product","name":r.product_name,"brand":{"@type":"Brand","name":r.brand},"offers":{"@type":"Offer","price":r.price,"priceCurrency":"JPY","availability":"https://schema.org/InStock","url":r.url||""}}}))};
-  document.getElementById('ranking-jsonld').textContent=JSON.stringify(ld);
+// Hero
+function renderHero() {
+  if (!D || !D.daily_ranking.length) return;
+  var best = D.daily_ranking[0];
+  document.getElementById('hero-ppg').textContent = '\u00A5' + best.price_per_g.toFixed(2) + '/g';
+  document.getElementById('hero-product').textContent = best.brand + ' ' + (best.weight_g >= 1000 ? best.weight_g/1000 + 'kg' : best.weight_g + 'g');
+  var cta = document.getElementById('hero-cta');
+  cta.href = best.url || '#';
+  cta.textContent = (best.source === 'official' ? '公式で見る' : '楽天で見る') + ' \u2192';
+  cta.addEventListener('click', function() { trackEvent('cta_click', { brand: best.brand, source: 'hero' }); });
+  if (D.generated_at) {
+    var d = new Date(D.generated_at);
+    document.getElementById('hero-updated').textContent = d.getFullYear() + '/' + String(d.getMonth()+1).padStart(2,'0') + '/' + String(d.getDate()).padStart(2,'0') + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0') + ' updated';
+  }
 }
 
-// ═══════════════════════════════════════
+// JSON-LD
+function buildLD() {
+  if (!D || !D.daily_ranking.length) return;
+  var ld = { "@context": "https://schema.org", "@type": "ItemList", "name": "プロテイン g単価ランキング", "numberOfItems": D.daily_ranking.length, "itemListElement": D.daily_ranking.map(function(r, i) { return { "@type": "ListItem", "position": i + 1, "item": { "@type": "Product", "name": r.product_name, "brand": { "@type": "Brand", "name": r.brand }, "offers": { "@type": "Offer", "price": r.price, "priceCurrency": "JPY", "availability": "https://schema.org/InStock", "url": r.url || "" } } }; }) };
+  document.getElementById('ranking-jsonld').textContent = JSON.stringify(ld);
+}
+
 // Stats
-// ═══════════════════════════════════════
-function renderStats(){
-  const best=D.daily_ranking[0];
-  document.getElementById('s-ppg').textContent=`¥${best.price_per_g.toFixed(2)}/g`;
-  document.getElementById('s-brand').textContent=best.brand;
-  document.getElementById('s-brands').textContent=new Set(D.daily_ranking.map(r=>r.brand)).size+'+';
-  document.getElementById('s-alerts').textContent=D.alert_count;
-  const d=new Date(D.generated_at);
-  const el=document.getElementById('updTime');
-  el.textContent=`${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}`;
-  el.setAttribute('datetime',D.generated_at);
+function renderStats() {
+  if (!D || !D.daily_ranking.length) return;
+  var best = D.daily_ranking[0];
+  document.getElementById('s-ppg').textContent = '\u00A5' + best.price_per_g.toFixed(2) + '/g';
+  document.getElementById('s-brand').textContent = best.brand;
+  var brands = {}; D.daily_ranking.forEach(function(r) { brands[r.brand] = true; });
+  document.getElementById('s-brands').textContent = Object.keys(brands).length + '+';
+  document.getElementById('s-alerts').textContent = D.alert_count;
+  if (D.generated_at) {
+    var d = new Date(D.generated_at);
+    var el = document.getElementById('updTime');
+    el.textContent = (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0');
+    el.setAttribute('datetime', D.generated_at);
+  }
 }
 
-// ═══════════════════════════════════════
 // Init
-// ═══════════════════════════════════════
-(async()=>{
+(async function() {
   await loadData();
+  renderHero();
   renderStats();
   buildFilters();
   renderRank();
