@@ -205,6 +205,8 @@ footer a{color:var(--cyan);text-decoration:none}
   .st-v{font-size:1.15rem}
   .search-box{display:none}
 }
+.cta-az{background:rgba(255,153,0,.12);border-color:rgba(255,153,0,.35);color:#ff9900}
+.cta-az:hover{background:rgba(255,153,0,.22);border-color:#ff9900;color:#ffb844}
 </style>
 </head>
 <body>
@@ -544,6 +546,7 @@ function renderHero() {
   document.getElementById('hero-product').textContent = best.brand + ' ' + (best.weight_g >= 1000 ? best.weight_g/1000 + 'kg' : best.weight_g + 'g');
   var cta = document.getElementById('hero-cta');
   cta.href = best.url || '#';
+var heroAz=document.getElementById('hero-az');if(heroAz&&best.amazon_url){heroAz.href=best.amazon_url;heroAz.style.display='';}else if(heroAz){heroAz.style.display='none';}
   cta.textContent = (best.source === 'official' ? '公式で見る' : '楽天で見る') + ' \u2192';
   cta.addEventListener('click', function() { trackEvent('cta_click', { brand: best.brand, source: 'hero' }); });
   if (D.generated_at) {
