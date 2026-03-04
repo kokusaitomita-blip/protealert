@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-03T13:10:59.599017",
+  "generated_at": "2026-03-04T02:58:23.500259",
   "period_days": 90,
   "dates": [
     "2026-02-18",
@@ -17,46 +17,27 @@
   ],
   "datasets": [
     {
-      "brand": "ALPRON",
+      "brand": "その他",
       "color": "#06b6d4",
       "data": [
         null,
         null,
-        2.07,
-        2.07,
-        2.07,
-        2.07,
-        2.07,
-        2.07,
-        2.07,
-        2.07,
-        2.07,
-        2.07
-      ],
-      "latest_ppg": 2.07
-    },
-    {
-      "brand": "その他",
-      "color": "#f59e0b",
-      "data": [
-        null,
-        null,
         2.98,
-        2.46,
-        2.46,
-        2.46,
-        2.46,
-        2.46,
         2.55,
         2.55,
         2.55,
-        2.46
+        2.55,
+        2.55,
+        2.55,
+        2.55,
+        2.55,
+        2.55
       ],
-      "latest_ppg": 2.46
+      "latest_ppg": 2.55
     },
     {
       "brand": "NICHIGA",
-      "color": "#10b981",
+      "color": "#f59e0b",
       "data": [
         null,
         null,
@@ -75,7 +56,7 @@
     },
     {
       "brand": "FIXIT",
-      "color": "#ef4444",
+      "color": "#10b981",
       "data": [
         null,
         null,
@@ -94,7 +75,7 @@
     },
     {
       "brand": "マイルーティーン",
-      "color": "#8b5cf6",
+      "color": "#ef4444",
       "data": [
         null,
         null,
@@ -113,7 +94,7 @@
     },
     {
       "brand": "Kentai",
-      "color": "#ec4899",
+      "color": "#8b5cf6",
       "data": [
         null,
         null,
@@ -132,7 +113,7 @@
     },
     {
       "brand": "GronG",
-      "color": "#14b8a6",
+      "color": "#ec4899",
       "data": [
         null,
         null,
@@ -151,7 +132,7 @@
     },
     {
       "brand": "ビーレジェンド",
-      "color": "#f97316",
+      "color": "#14b8a6",
       "data": [
         null,
         null,
@@ -170,7 +151,7 @@
     },
     {
       "brand": "X-PLOSION",
-      "color": "#6366f1",
+      "color": "#f97316",
       "data": [
         2.73,
         2.73,
@@ -189,7 +170,7 @@
     },
     {
       "brand": "リミテスト",
-      "color": "#84cc16",
+      "color": "#6366f1",
       "data": [
         null,
         null,
@@ -208,7 +189,7 @@
     },
     {
       "brand": "SAVE",
-      "color": "#e11d48",
+      "color": "#84cc16",
       "data": [
         null,
         null,
@@ -227,7 +208,7 @@
     },
     {
       "brand": "マイプロテイン",
-      "color": "#0ea5e9",
+      "color": "#e11d48",
       "data": [
         null,
         null,
@@ -246,7 +227,7 @@
     },
     {
       "brand": "Wellni",
-      "color": "#a855f7",
+      "color": "#0ea5e9",
       "data": [
         null,
         null,
@@ -265,7 +246,7 @@
     },
     {
       "brand": "WINZONE",
-      "color": "#22c55e",
+      "color": "#a855f7",
       "data": [
         null,
         null,
@@ -284,7 +265,7 @@
     },
     {
       "brand": "ハイクリア",
-      "color": "#eab308",
+      "color": "#22c55e",
       "data": [
         null,
         null,
@@ -300,11 +281,30 @@
         3.58
       ],
       "latest_ppg": 3.58
+    },
+    {
+      "brand": "ボディウイング",
+      "color": "#eab308",
+      "data": [
+        null,
+        null,
+        3.24,
+        3.24,
+        4.12,
+        1.99,
+        4.12,
+        4.12,
+        4.12,
+        4.12,
+        4.12,
+        3.83
+      ],
+      "latest_ppg": 3.83
     }
   ],
   "summary": {
-    "total_brands": 19,
-    "total_data_points": 184,
+    "total_brands": 18,
+    "total_data_points": 174,
     "date_range": {
       "from": "2026-02-18",
       "to": "2026-03-03"
