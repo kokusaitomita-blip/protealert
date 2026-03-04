@@ -851,6 +851,24 @@ function renderStats() {
   renderRank();
   renderAlerts();
   buildLD();
+
+  // ガイド内サブナビ切り替え
+  document.querySelectorAll('.guide-nav button[data-gsec]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const target = this.dataset.gsec;
+      // ボタンのactive切り替え
+      document.querySelectorAll('.guide-nav button[data-gsec]').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      this.classList.add('active');
+      // セクションのactive切り替え
+      document.querySelectorAll('.guide-sec').forEach(function(sec) {
+        sec.classList.remove('active');
+      });
+      const targetSec = document.getElementById('gsec-' + target);
+      if (targetSec) targetSec.classList.add('active');
+    });
+  });
 })();
 </script>
 </body>
