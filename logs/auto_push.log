@@ -79,3 +79,27 @@ To https://github.com/kokusaitomita-blip/protealert.git
    c9874f7..06b107c  main -> main
 [2026/03/03  7:35:01.58] Step 2: Pushed successfully 
 [2026/03/03  7:35:03.17] === Auto Push Complete === 
+[2026/03/04  7:35:01.41] Step 1: Generating website data... 
+==================================================
+ProteAlert Website Data Generator
+==================================================
+
+[1/2] Generating sale_alerts.json ...
+  [OK] 30 products, 10 sales
+  -> C:\protealert\data\sale_alerts.json
+
+[2/2] Generating price_history.json ...
+  [OK] 19 brands, 193 data points
+  Period: 2026-02-18 ~ 2026-03-04
+  -> C:\protealert\data\price_history.json
+
+==================================================
+Done!
+[2026/03/04  7:35:01.56] Step 1: OK 
+[2026/03/04  7:35:01.58] Step 2: Git push... 
+[main 7c4883b] auto-update: 2026-03-04
+ 2 files changed, 120 insertions(+), 104 deletions(-)
+To https://github.com/kokusaitomita-blip/protealert.git
+   bf2323c..7c4883b  main -> main
+[2026/03/04  7:35:01.62] Step 2: Pushed successfully 
+[2026/03/04  7:35:03.26] === Auto Push Complete === 
